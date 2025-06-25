@@ -78,18 +78,20 @@
                             d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
                     </svg>
                 </button>
-
                 <!-- Profile dropdown -->
                 <button class="group relative text-black text-lg px-3 py-1 rounded">
                     <img class="size-8 rounded-full"
                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                         alt="">
-                        <div class="absolute top-full right-0 rounded-lg p-3 mt-0 ml-4 shadow-md scale-y group-focus:scale-y-100 origin-top duration-200">
-                           <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Profile</a>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-            <a href="{{ route('logout')}}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
-                        </div>
-                    
+                    <div class="absolute top-full right-0 rounded-lg p-3 mt-0 ml-4 shadow-md group-focus:scale-y-100 origin-top duration-200">
+                        <a href="#" class="active block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                            id="user-menu-item-0">Profile</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                            id="user-menu-item-1">Settings</a>
+                        <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
+                            tabindex="-1" id="user-menu-item-2">Sign out</a>
+                    </div>
+
                 </button>
             </div>
         </div>

@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    
     use SoftDeletes;
+
+    // protected $guarded = [];
 
     public function setUserName($user_name) 
     {

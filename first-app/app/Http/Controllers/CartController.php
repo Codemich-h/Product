@@ -46,7 +46,7 @@ class CartController extends Controller
     {
         $total = 0;
         $productsInSession = $request->session()->get('product');
-        // dd(Auth::user());
+        // dd($productsInSession);
         if($productsInSession) {
             $userId = Auth::user()->id;
             $order = new Order();

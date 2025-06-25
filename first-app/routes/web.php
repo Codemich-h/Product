@@ -8,9 +8,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
-
-
-
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +48,7 @@ Route::controller(ProductController::class)->group(function () {
     Route::get('/product/{id}/edit', 'edit')->name('edit.product');
     Route::put('/product/{id}/update', 'update')->name('update.product');
     Route::get('/product/{id}/delete', 'delete')->name('delete.product');
+    Route::get('/product/search', 'search')->name('product.search');
 });
 
 Route::controller(CartController::class)->group(function () {
@@ -58,6 +57,8 @@ Route::controller(CartController::class)->group(function () {
     Route::get('/cart/delete', 'delete')->name('cart.delete');
     Route::get('/cart/purchase', 'purchase')->name('cart.purchase');
 });
+
+
 
 //Register Route
 Route::get('/register', [AuthController::class, 'showRegister'])->name('create.account');

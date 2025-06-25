@@ -103,4 +103,18 @@ class ProductController extends Controller
 
         return back();
     }
+
+     public function search(Request $request)
+    {
+        
+        $search = $request->search;
+        $products = Product::where('product_name', 'like', '%'.$search.'%')->paginate(3);
+        // dd($viewData['products']);
+        $viewData = [];
+        $viewData['title'] = 'Product Online Store';
+        $viewData['subtitle'] = 'Edit product';
+        $viewData['products'] = $products;
+
+        return view('Product.product')->with('viewData', $viewData);
+    }
 }

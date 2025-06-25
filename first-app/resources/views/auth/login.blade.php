@@ -1,7 +1,7 @@
 <x-guest-layout>
     <form method="POST" action="{{ route('login') }}" class="space-y-6">
         @csrf
-        <div class="mb-12">
+        <div class="mb-12" src="">
             <h1 class="text-slate-900 text-3xl font-semibold ml-32">Sign in</h1>
             <p class="text-slate-600 text-[15px] mt-6 leading-relaxed ml-20">Sign into your account.</p>
         </div>
