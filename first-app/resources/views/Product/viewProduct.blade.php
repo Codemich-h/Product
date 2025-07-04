@@ -5,7 +5,7 @@
     <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800 mt-0">
 
         <div class="h-56 w-full">
-            <img class="mx-auto h-full dark:hidden" src="{{ asset('/storage/' . $viewData['product']->getImage()) }}"
+            <img class="mx-auto h-full dark:hidden" src="{{ asset('/storage/' .$viewData['product']->getImage()) }}"
                 alt="" />
         </div>
         <div class="pt-6 ml-20 mr-70">
@@ -67,7 +67,7 @@
             <div class="mt-4 flex items-center justify-between gap-4">
                 <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">
                     {{ $viewData['product']->getPrice() }}</p>
-                <p class="text-1xl mr-96 font-extrabold leading-tight text-gray-900 dark:text-white">
+                <p class="text-1xl mr-72 font-extrabold leading-tight text-gray-900 dark:text-white">
                     {{ $viewData['product']->getDescription() }}</p>
             </div>
                 <form method="POST" action="{{ route('cart.add', ['id' => $viewData['product']->getId()]) }}">
@@ -90,7 +90,7 @@
         </div>
     </div>
     {{-- Footer --}}
-    <div class="py-4 mt-80 ml-6 text-center text-black copyright">
+    <div class="py-4 mt-80 text-center text-black copyright">
         <div class="container">
             <small>Copyright - <a class="text-reset fw-bold text-decoration-none" target="_blank" href="#">Code with
                     Mich 😀 ✅</a>

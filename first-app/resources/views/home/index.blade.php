@@ -1,97 +1,31 @@
 @extends('layouts.app')
 @section('title', $viewData['title'])
 @section('content')
-    <div class="row">
-        <div class="flex items-center justify-center">
-            <div class="w-full px-4 py-12 2xl:mx-auto 2xl:container sm:px-6 xl:px-20 2xl:px-0">
-
-                <div class="flex flex-col items-center justify-center ">
-                        <h1 class="text-3xl mb-4 font-semibold leading-7 text-gray-800 xl:text-4xl xl:leading-9 dark:text-white">
-                            Shop By Category</h1>
+    <section class="py-24">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 class="font-manrope font-bold text-4xl text-black mb-8 max-lg:text-center">
+                Product list
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                @foreach ($viewData['products'] as $product)
+                <a href="{{ route('view.product', ['id' => $product->getId()]) }}"
+                    class="mx-auto sm:mr-0 group cursor-pointer lg:mx-auto bg-white transition-all duration-500">
+                    <div class="">
+                        <img src="{{ asset('/storage/' . $product->getImage()) }}" alt=""
+                            class="w-full aspect-square rounded-2xl object-cover">
                     </div>
-                <div class="flex flex-col items-center space-y-10 jusitfy-center">
-                    
-                    <div class="grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-8">
-                        <div class="relative flex items-center justify-center w-full h-full group">
-                            <img class="object-cover object-center w-full h-full"
-                                src="https://i.ibb.co/ThPFmzv/omid-armin-m-VSb6-PFk-VXw-unsplash-1-1.png" alt="girl-image" />
-                            <button
-                                class="absolute z-10 py-3 text-base font-medium leading-none text-gray-800 bg-white dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 w-36">Women</button>
-                            <div
-                                class="absolute z-0 px-20 py-6 transition duration-500 bg-white bg-opacity-50 opacity-0 group-hover:opacity-100 bottom-3 w-36">
-                            </div>
+                    <div class="mt-5">
+                        <div class="flex items-center justify-between">
+                            <h6
+                                class="font-semibold text-xl leading-8 text-black transition-all duration-500 group-hover:text-indigo-600">
+                                {{ $product->getProductName() }}</h6>
+                            <h6 class="font-semibold text-xl leading-8 text-indigo-600">{{ $product->getPrice() }}</h6>
                         </div>
-
-                        <div class="flex flex-col mt-4 space-y-4 md:space-y-8 md:mt-0">
-                            <div class="relative flex items-center justify-center w-full h-full group">
-                                <img class="object-cover object-center w-full h-full"
-                                    src="https://i.ibb.co/SXZvYHs/irene-kredenets-DDqx-X0-7v-KE-unsplash-1.png"
-                                    alt="shoe-image" />
-                                <button
-                                    class="absolute z-10 py-3 text-base font-medium leading-none text-gray-800 bg-white dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 w-36">Shoes</button>
-                                <div
-                                    class="absolute z-0 px-20 py-6 transition duration-500 bg-white bg-opacity-50 opacity-0 group-hover:opacity-100 bottom-3 w-36">
-                                </div>
-                            </div>
-                            <div class="relative flex items-center justify-center w-full h-full group">
-                                <img class="object-cover object-center w-full h-full"
-                                    src="https://i.ibb.co/Hd1pVxW/louis-mornaud-Ju-6-TPKXd-Bs-unsplash-1-2.png"
-                                    alt="watch-image" />
-                                <button
-                                    class="absolute z-10 py-3 text-base font-medium leading-none text-gray-800 bg-white dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 w-36">Watches</button>
-                                <div
-                                    class="absolute z-0 px-20 py-6 transition duration-500 bg-white bg-opacity-50 opacity-0 group-hover:opacity-100 bottom-3 w-36">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="relative items-center justify-center hidden w-full h-full group lg:flex">
-                            <img class="object-cover object-center w-full h-full"
-                                src="https://i.ibb.co/PTtRBLL/olive-tatiane-Im-Ez-F9-B91-Mk-unsplash-1.png"
-                                alt="girl-image" />
-                            <button
-                                class="absolute z-10 py-3 text-base font-medium leading-none text-gray-800 bg-white dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 w-36">Accessories</button>
-                            <div
-                                class="absolute z-0 px-20 py-6 transition duration-500 bg-white bg-opacity-50 opacity-0 group-hover:opacity-100 bottom-3 w-36">
-                            </div>
-                        </div>
-                        <div
-                            class="relative flex items-center justify-center w-full h-full mt-4 group md:hidden md:mt-8 lg:hidden">
-                            <img class="hidden object-cover object-center w-full h-full md:block"
-                                src="https://i.ibb.co/6FjW19n/olive-tatiane-Im-Ez-F9-B91-Mk-unsplash-2.png"
-                                alt="girl-image" />
-                            <img class="object-cover object-center w-full h-full md:hidden"
-                                src="https://i.ibb.co/sQgHwHn/olive-tatiane-Im-Ez-F9-B91-Mk-unsplash-1.png"
-                                alt="olive-tatiane-Im-Ez-F9-B91-Mk-unsplash-2" />
-                            <button
-                                class="absolute z-10 py-3 text-base font-medium leading-none text-gray-800 bg-white dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 w-36">Accessories</button>
-                            <div
-                                class="absolute z-0 px-20 py-6 transition duration-500 bg-white bg-opacity-50 opacity-0 group-hover:opacity-100 bottom-3 w-36">
-                            </div>
-                        </div>
+                        <p class="mt-2 font-normal text-sm leading-6 text-gray-500">{{ $product->getDescription() }}</p>
                     </div>
-                    <div
-                        class="relative items-center justify-center hidden w-full h-full mt-4 group md:flex md:mt-8 lg:hidden">
-                        <img class="hidden object-cover object-center w-full h-full md:block"
-                            src="https://i.ibb.co/6FjW19n/olive-tatiane-Im-Ez-F9-B91-Mk-unsplash-2.png" alt="girl-image" />
-                        <img class="object-cover object-center w-full h-full sm:hidden"
-                            src="https://i.ibb.co/sQgHwHn/olive-tatiane-Im-Ez-F9-B91-Mk-unsplash-1.png"
-                            alt="olive-tatiane-Im-Ez-F9-B91-Mk-unsplash-2" />
-                        <button
-                            class="absolute z-10 py-3 text-base font-medium leading-none text-gray-800 bg-white dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 w-36">Accessories</button>
-                        <div
-                            class="absolute z-0 px-20 py-6 transition duration-500 bg-white bg-opacity-50 opacity-0 group-hover:opacity-100 bottom-3 w-36">
-                        </div>
-                    </div>
-                </div>
-                <div class="py-4 text-center text-black copyright">
-      <div class="container">
-        <small>Copyright - <a class="text-reset fw-bold text-decoration-none" target="_blank" href="#">Code with Mich 😀 ✅</a>
-          </small>
-      </div>
-    </div>
+                </a>
+                @endforeach
             </div>
         </div>
-    </div>
-
+    </section>
 @endsection

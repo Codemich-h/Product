@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SearchController;
 
@@ -35,9 +36,12 @@ use App\Http\Controllers\SearchController;
 // });
 
 Route::controller(HomeController::class)->group(function () {
+    Route::get('/register', 'showRegister')->name('create.account');
+    Route::get('/register', 'showRegister')->name('create.account');
     Route::get('/', 'index')->name('home.index');
     Route::get('/about', 'about')->name('home.about');
     Route::get('/contact', 'contact')->name('home.contact');
+    Route::get('/profile', 'profile')->name('home.profile');
 });
 
 Route::controller(ProductController::class)->group(function () {
@@ -58,14 +62,10 @@ Route::controller(CartController::class)->group(function () {
     Route::get('/cart/purchase', 'purchase')->name('cart.purchase');
 });
 
+Route::controller(OrderController::class)->group(function (){
+    Route::get('/orders/order', 'orders')->name('orders.order');
+});
 
-
-//Register Route
-Route::get('/register', [AuthController::class, 'showRegister'])->name('create.account');
-//Register Post Routes
-Route::post('/register', [AuthController::class, 'store'])->name('register');
-Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('user.dashboard');
-// Product Route
 Route::get('/product/{id}', [ProductController::class, 'store']);
 
 require __DIR__ . '/auth.php';

@@ -45,7 +45,7 @@
                             class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Product</a>
                         <a href="{{ route('cart.index') }}"
                             class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Cart</a>
-                        <a href="#"
+                        <a href="{{ route('orders.order') }}"
                             class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">My
                             Order</a>
                         <a href="{{ route('home.about') }}"
@@ -63,7 +63,6 @@
                         <a href="{{ route('register') }}"
                             class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Register</a> --}}
                     </div>
-
                 </div>
             </div>
             <div
@@ -79,23 +78,30 @@
                     </svg>
                 </button>
                 <!-- Profile dropdown -->
-                <button class="group relative text-black text-lg px-3 py-1 rounded">
+                <div class="relative text-black text-lg px-3 py-1 rounded cursor-pointer" onclick="toggleDropdown()"
+                    id="dropdownButton" data-dropdown-toggle="dropdown">
                     <img class="size-8 rounded-full"
                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                         alt="">
-                    <div class="absolute top-full right-0 rounded-lg p-3 mt-0 ml-4 shadow-md group-focus:scale-y-100 origin-top duration-200">
-                        <a href="#" class="active block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-                            id="user-menu-item-0">Profile</a>
+                    <div id="dropdown"
+                        class="absolute hidden top-full right-0 rounded-lg p-3 mt-0 ml-4 shadow-md group-focus:scale-y-100 origin-top duration-200">
+                        <hr class="h-px my-1 bg-gray-200 border-0 dark:bg-gray-700">
+                        <a href="{{ route('home.profile') }}" class="active block px-4 py-2 text-sm text-gray-700" role="menuitem"
+                            tabindex="-1" id="user-menu-item-0">Profile</a>
                         <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
                             id="user-menu-item-1">Settings</a>
                         <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
                             tabindex="-1" id="user-menu-item-2">Sign out</a>
                     </div>
 
-                </button>
+                </div>
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
-
+    <script>
+        function toggleDropdown() {
+            let dropdown = document.querySelector('#dropdownButton #dropdown');
+            dropdown.classList.toggle("hidden");
+        }
+    </script>
 </nav>

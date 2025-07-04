@@ -94,6 +94,7 @@ class ProductController extends Controller
             $product->setImage($imageName);
             $product->update();
         }
+
         return redirect()->route('show.product');
     }
 
@@ -106,7 +107,6 @@ class ProductController extends Controller
 
      public function search(Request $request)
     {
-        
         $search = $request->search;
         $products = Product::where('product_name', 'like', '%'.$search.'%')->paginate(3);
         // dd($viewData['products']);

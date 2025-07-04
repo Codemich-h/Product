@@ -9,7 +9,6 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use App\Models\Product;
 
 
 class AuthenticatedSessionController extends Controller
@@ -19,7 +18,6 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-        // dd('test');
         return view('auth.login');
     }
 
@@ -31,7 +29,6 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
-        // dd('welcome');
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 
@@ -45,7 +42,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->invalidate();
 
-        $request->session()->regenerateToken();
+        // $request->session()->regenerateToken();
 
         return redirect('/login');
     }
