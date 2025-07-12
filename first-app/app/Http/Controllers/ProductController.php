@@ -117,4 +117,9 @@ class ProductController extends Controller
 
         return view('Product.product')->with('viewData', $viewData);
     }
+
+    public function category()
+    {
+        return view('category.index');
+    }
 }

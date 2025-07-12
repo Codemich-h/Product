@@ -53,6 +53,7 @@ Route::controller(ProductController::class)->group(function () {
     Route::put('/product/{id}/update', 'update')->name('update.product');
     Route::get('/product/{id}/delete', 'delete')->name('delete.product');
     Route::get('/product/search', 'search')->name('product.search');
+    Route::get('/category/Computer &amp; Office', 'category')->name('category.category');
 });
 
 Route::controller(CartController::class)->group(function () {
@@ -66,6 +67,19 @@ Route::controller(OrderController::class)->group(function (){
     Route::get('/orders/order', 'orders')->name('orders.order');
 });
 
+Route::controller(DashboardController::class)->group(function (){
+    Route::get('/dashboard', 'showDashboard')->name('dashboard.dashboard');
+});
+
+Route::controller(DashboardController::class)->group(function (){
+    Route::get('/categories', 'showCategories')->name('show.categories');
+});
+
+Route::controller(DashboardController::class)->group(function (){
+    Route::get('/order', 'showOrder')->name('show.orders');
+});
+
 Route::get('/product/{id}', [ProductController::class, 'store']);
 
 require __DIR__ . '/auth.php';
+

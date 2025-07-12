@@ -13,6 +13,6 @@ class DashboardController extends Controller
 
     public function showDashboard()
     {
-        return view('layouts.dashboard');   
+        return view('dashboard.dashboard');   
     }
 }
