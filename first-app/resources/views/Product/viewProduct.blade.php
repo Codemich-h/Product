@@ -1,8 +1,25 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('title', $viewData['title'])
 @section('subtitle', $viewData['subtitle'])
 @section('content')
-    <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800 mt-0">
+    <div class="bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800 mt-0">
+        <div class="flex flex-nowrap 2xl:ml-96 xl:ml-28 md:ml-34 sm:ml-12">
+            <svg class="w-6 h-6 text-gray-500 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m4 12 8-8 8 8M6 10.5V19a1 1 0 0 0 1 1h3v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h3a1 1 0 0 0 1-1v-8.5"/>
+            </svg>
+            <p class="2xl:ml-4 xl:ml-2 md:ml-4 sm:ml-4 ml-2 text-gray-500">Home</p>
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="28" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10 16 4-4-4-4"/>
+            </svg>
+            <p class="2xl:ml-4 xl:ml-1 md:ml-4 sm:ml-4 text-gray-500">Vehicles</p>
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="28" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10 16 4-4-4-4"/>
+            </svg>
+            <p class="2xl:ml-4 xl:ml-1 md:ml-4 sm:ml-4 text-gray-500">Range Rover</p>
+        </div>
+        <div class="box-content size-36 w-full md:w-fill py-40 bg-gray-200 2xl:ml-36 xl:ml-36 md:ml-20 ml-6 2xl:mt-6 xl:mt-6 xl:mr-24 md:mt-6 mt-4 hidden md:block mr-40">
+
+        </div>
 
         <div class="h-56 w-full">
             <img class="mx-auto h-full dark:hidden" src="{{ asset('/storage/' .$viewData['product']->getImage()) }}"

@@ -92,34 +92,24 @@
             <div class="py-2">
                 @include('/home/fullimage')
             </div>
-            <div  class="py-2">
-                @include('/home/newsletter')
-            </div>
-            <div  class="py-2">
-                @include('/home/filterSide')
-            </div>
 
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-96">
-                @foreach ($viewData['products'] as $product)
-                    <a href="{{ route('view.product', ['id' => $product->getId()]) }}"
-                        class="mx-auto sm:mr-0 group cursor-pointer lg:mx-auto bg-white transition-all duration-500">
-                        <div class="">
-                            <img src="{{ asset('/storage/' . $product->getImage()) }}" alt=""
-                                class="w-full aspect-square rounded-2xl object-cover">
-                        </div>
-                        <div class="mt-5">
-                            <div class="flex items-center justify-between">
-                                <h6
-                                    class="font-semibold text-xl leading-8 text-black transition-all duration-500 group-hover:text-indigo-600">
-                                    {{ $product->getProductName() }}</h6>
-                                <h6 class="font-semibold text-xl leading-8 text-indigo-600">{{ $product->getPrice() }}</h6>
-                            </div>
-                            <p class="mt-2 font-normal text-sm leading-6 text-gray-500">{{ $product->getDescription() }}</p>
-                        </div>
-                    </a>
-                @endforeach
-            </div>
+            {{-- List of Product --}}
         </div>
     </section>
+
+
+    {{-- End of the List of Product --}}
+    <div class="py-96">
+        @include('/home/products')
+    </div>
+
+    {{-- News Letter --}}
+    <div class="py-14">
+        @include('/home/newsletter')
+    </div>
+    {{-- Footer --}}
+    <div class="-py-14">
+        @include('/home/footer')
+    </div>
 @endsection

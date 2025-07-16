@@ -14,7 +14,7 @@ class ProductController extends Controller
         $viewData['title'] = 'Home: Shopping Made Easy';
         $viewData['description'] = 'Online shop';
         $viewData['products'] = Product::all();
-        $viewData['products'] = Product::orderBy('id', 'desc')->paginate(6);
+        $viewData['products'] = Product::orderBy('id', 'desc')->paginate(3);
 
         // dd(Product::all());
         return view('product.product', $viewData)->with('viewData', $viewData);

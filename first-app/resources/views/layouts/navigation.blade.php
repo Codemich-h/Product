@@ -31,8 +31,15 @@
                         {{ __('My Orders') }}
                     </x-nav-link>
                 </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex pl-96">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white mt-5 ml-92 aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
+                        {{-- <span class="text-red-600 mt-4 r-4">0</span> --}}
+                </svg>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex pl-74">
                     <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
                         {{ __('Login') }}
                     </x-nav-link>
@@ -69,10 +76,10 @@
                         </x-dropdown-link>
 
                         <!-- Authentication -->
-                        <form method="POST" action="">
+                        <form method="GET" action="">
                             @csrf
 
-                            <x-dropdown-link :href="route('logout')"
+                            <x-dropdown-link href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
